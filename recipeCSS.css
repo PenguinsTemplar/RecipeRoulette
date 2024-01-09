@@ -1,0 +1,23 @@
+body {
+    background-color: antiquewhite;
+    font-size: 1.5em;
+}
+
+.custom-css{
+    background: rgba(9, 45, 4, 0.679)!important;
+}
+
+.custom-color-red{
+    background-color: brown!important;
+}
+
+.custom-card-img{
+    height: 500px;
+    width: 500px;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}

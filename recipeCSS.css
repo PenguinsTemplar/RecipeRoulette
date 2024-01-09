@@ -21,3 +21,28 @@ img {
     height: 400px;
     object-fit: cover;
 }
+
+ol li{
+    font-size: 1em;
+    background-color: rgb(199, 199, 227);
+}
+
+.completed {
+    color: aliceblue;
+    text-decoration: line-through;
+}
+
+h1 {
+    text-align: center;
+    transition: all 1s;
+    }
+
+.big {
+        transform: scale(2);
+        color: green;
+    }
+
+.small {
+    transform: scale(0.5);
+    color: red;
+}

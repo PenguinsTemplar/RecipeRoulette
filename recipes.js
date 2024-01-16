@@ -1,4 +1,4 @@
-let mainDish = [
+export let mainDish = [
     {
     title : 'Peanut Curry Stew',
     imageSrc:    'Assets\/PeanutCurryStew.png',
@@ -25,7 +25,7 @@ let mainDish = [
 },
 ]
 
-let recipes = [
+export let recipes = [
     {
         title : 'Scrambled Eggs',
         imageSrc:  'Assets\/ScrambledEggs.png',
@@ -107,5 +107,21 @@ let recipes = [
         ingredients : 'Typically, its green hot peppers with vinegar and olive oil, and parsley for some bitterness and texture.  if you MUST, use Cilantro',
         instructions: 'Make yer sauce, bread em, Fry em',
         category:'Entree'
+    },
+    {
+        title : 'Eggplant Parmasean',
+        imageSrc:  'Assets\/EggPlantParm.png',
+        description : 'Somewhat healthier than the Chicken version',
+        ingredients : 'Eggplant Noodles Parmasean Marinara',
+        instructions: 'Cook the Eggplant till it is done',
+        category:'Vegetable'
+    },
+    {
+        title : 'Eggplant Parmasean',
+        imageSrc:  'Assets\/EggPlantParm.png',
+        description : 'Somewhat healthier than the Chicken version',
+        ingredients : 'Eggplant Noodles Parmasean Marinara',
+        instructions: 'Cook the Eggplant till it is done',
+        category:'Vegetable'
     },
 ]

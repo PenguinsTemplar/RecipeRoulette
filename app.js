@@ -29,7 +29,7 @@ let loveVegitable = 0;
 function getButtons(mainDish) {
   const randomButtons = document.querySelectorAll(".randomiseButton");
     
-       randomButtons.forEach((button, index) => {
+       randomButtons.forEach((button, index ) => {
 
          button.addEventListener('click', function() {
           console.log(mainDish[index])
@@ -51,9 +51,9 @@ function getButtons(mainDish) {
 window.onload = function(){
   let btn = document.getElementById('randomDish')
   btn.addEventListener('click', randomiseAll)
-  // container.innerHTML = ` <button id='rollDish' class="btn btn-primary mt-4 mb-4">Reshuffle Dish</button>`
-  // let d = document.getElementById('rollDish')
-  // d.addEventListener('click',randomiseAll)
+  container.innerHTML = ` <button id='rollDish' class="btn btn-primary mt-4 mb-4">Reshuffle Dish</button>`
+  let d = document.getElementById('rollDish')
+  d.addEventListener('click',randomiseAll)
 
     for(let i = 0; i 
       < mainDish.length; i++){

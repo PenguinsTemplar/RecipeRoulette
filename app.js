@@ -24,26 +24,36 @@ let loveSide = 0;
 let loveVegitable = 0;
 
 
-function detectButton(mainDish, i) {
-  console.log(i)
-  if(mainDish[i].category === "Entree"){
-      return randomiseEntree
-  }else if(mainDish[i].category === "Side"){
-      return randomiseSide
 
-  }else{
-      return randomiseVegetable
-  }
 
+function getButtons(mainDish) {
+  const randomButtons = document.querySelectorAll(".randomiseButton");
+    
+       randomButtons.forEach((button, index) => {
+
+         button.addEventListener('click', function() {
+          console.log(mainDish[index])
+          if(mainDish[index].category === "Vegetable"){
+            console.log('vegetable')
+              randomiseVegetable()
+          }
+          if(mainDish[index].category === "Entree"){
+              randomiseEntree()
+          }else if(mainDish[index].category === "Side"){
+              randomiseSide()
+          }
+        
+        })
+       })
 }
 
 //Sets initial set of dishes
 window.onload = function(){
   let btn = document.getElementById('randomDish')
   btn.addEventListener('click', randomiseAll)
-  container.innerHTML = ` <button id='rollDish' class="btn btn-primary">Reshuffle Dish</button>`
-  let d = document.getElementById('rollDish')
-  d.addEventListener('click',randomiseAll)
+  // container.innerHTML = ` <button id='rollDish' class="btn btn-primary mt-4 mb-4">Reshuffle Dish</button>`
+  // let d = document.getElementById('rollDish')
+  // d.addEventListener('click',randomiseAll)
 
     for(let i = 0; i 
       < mainDish.length; i++){
@@ -54,25 +64,7 @@ window.onload = function(){
        row.appendChild(div)
        container.appendChild(row);
        }
-       const randomButtons = document.querySelectorAll(".randomiseButton");
-    
-       randomButtons.forEach((button, index) => {
-         button.addEventListener('click', function() {
-          console.log(index)
-          if(mainDish[index].category === "Entree"){
-              randomiseEntree()
-              return randomiseEntree
-          }else if(mainDish[index].category === "Side"){
-              randomiseSide()
-              return randomiseSide
-        
-          }else{
-              randomiseVegetable()
-              return randomiseVegetable
-          }
-        
-        })
-       })
+       getButtons(mainDish)
        const freshCards = document.querySelectorAll('.card');
        cards = freshCards
 
@@ -98,6 +90,7 @@ export function randomiseAll() {
      row.appendChild(div)
      container.appendChild(row);
 }
+getButtons(mainDish)
 }
 //lockEntree
 
@@ -131,6 +124,7 @@ export function randomiseEntree() {
      row.appendChild(div)
      container.appendChild(row);
   }
+  getButtons(mainDish)
 }
 else{
 
@@ -153,8 +147,8 @@ export function randomiseSide() {
   row.innerHTML = '';
   container.removeChild(row)
   const reshuffleDish = random();
-  const entree = reshuffleDish.filter(dish => dish.category === "Entree")[0]
-  const vegetable = reshuffleDish.filter(dish => dish.category === "Vegetable")[0]
+  const entree = mainDish[0]
+  const vegetable = mainDish[2]
   let newDish= [];
   const side = reshuffleDish.filter(dish => dish.category === "Side")[0];
   
@@ -165,10 +159,12 @@ export function randomiseSide() {
       //array of attributes to handle mobile
       div.classList.add(['col-4']);
       div.classList.add('mb-3')
-      div.innerHTML = cardHtml(newDish,i)     
+      div.innerHTML = cardHtml(newDish,i)
+        
      row.appendChild(div)
      container.appendChild(row);
   }
+  getButtons(mainDish)   
 }
 }
 
@@ -184,7 +180,7 @@ function toggleLockVegetable(){
 
 //Shuffle Vegetable
 export function randomiseVegetable() {
-  if(lockVegetable === 0){
+  // if(lockVegetable === 0){
   row.innerHTML = '';
   container.removeChild(row)
   const reshuffleDish = random();
@@ -194,19 +190,17 @@ export function randomiseVegetable() {
   const vegetable = reshuffleDish.filter(dish => dish.category === "Vegetable")[0];
   newDish.push(entree, side, vegetable);
   console.log('Veggie : ', newDish)
-  for(let i = 0; i < 3; i++){
+  for(let i = 0; i < newDish.length; i++){
       const div = document.createElement('div')
       //array of attributes to handle mobile
       div.classList.add(['col-4']);
       div.classList.add('mb-3')
-      div.innerHTML = cardHtml(newDish,i)     
+      div.innerHTML = cardHtml(newDish,i) 
+        
      row.appendChild(div)
      container.appendChild(row);
   }
-}
-else{
-
-}
+  getButtons(mainDish)  
 }
 
 //Randomizes the order of the recipies

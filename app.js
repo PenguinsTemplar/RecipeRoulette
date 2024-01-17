@@ -39,7 +39,7 @@ function detectButton(mainDish, i) {
 
 //Sets initial set of dishes
 window.onload = function(){
-  let btn = document.getElementById('radomDish')
+  let btn = document.getElementById('randomDish')
   btn.addEventListener('click', randomiseAll)
   container.innerHTML = ` <button id='rollDish' class="btn btn-primary">Reshuffle Dish</button>`
   let d = document.getElementById('rollDish')
@@ -60,11 +60,14 @@ window.onload = function(){
          button.addEventListener('click', function() {
           console.log(index)
           if(mainDish[index].category === "Entree"){
+              randomiseEntree()
               return randomiseEntree
           }else if(mainDish[index].category === "Side"){
+              randomiseSide()
               return randomiseSide
         
           }else{
+              randomiseVegetable()
               return randomiseVegetable
           }
         

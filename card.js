@@ -12,10 +12,10 @@ import { randomiseEntree,randomiseSide,randomiseVegetable } from "./app.js"
 
 export function cardHtml(mainDish,i){
 return `<div>
-      <div class="card card-${i}">
+      <div class="card">
         <h2>${mainDish[i].category}</h2>
         <div class="d-flex gap-2 mb-3">
-          <button type="button" class="btn btn-primary randomiseButton">
+          <button id=btnRec-${i} type="button" class="btn btn-primary randomiseButton">
           <i class="bi bi-dice-6-fill">dice</i>
           Roll'Em!
           </button>

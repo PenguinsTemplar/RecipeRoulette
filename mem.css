@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(11, 22, 42);
+    color: rgb(191, 66, 135);
+    text-align: center;
+}
+
+.game{
+    height: 740px;
+    margin: 0 auto;
+    width: 550px;
+    display: grid;
+    grid-template-columns: repeat(4, 108px);
+    gap: 16px;
+    padding:10%;
+    background-color: rgb(95, 75, 222);
+    border: 10px solid rgb(28,78,172);
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    width: 100px;
+    color: rgb(230, 225, 225);
+    background-color: rgb(93, 4, 53);
+    background-size: cover;
+    transform: rotateY(360deg);
+    transition: linear 0.5s;
+}
+
+.faceup{
+    
+    background-position: center;
+    background-size: 80px;
+    border: solid 5px;
+    border-color: rgb(213, 40, 69);
+    border-radius: 5%;  
+
+}
+
+.facedown{
+    background-color: transparent;
+    background:url(Assets/interceptorCard.gif) no-repeat ;
+    background-position: center;
+    background-size: 80px;
+    border: solid 5px;
+    border-color: rgb(213, 40, 69);
+    border-radius: 5%;  
+}

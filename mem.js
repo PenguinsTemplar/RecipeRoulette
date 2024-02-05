@@ -1,13 +1,14 @@
 const colorList = ['red','blue','green'
-,'orange','pink','yellow','aqua','purple'];
+,'orange','pink','yellow','aqua','purple','white','mauve'];
 let cardSet = [];
 
 const gameBoard = document.querySelector('.game')
-gameBoard.addEventListener('click', pickCard)
 
 let turnCount = 0
 let hasFlippedCard = false
-let firstCard, secondCard
+let firstCard,secondCard
+let firstCardID= -1
+let secondCardID = -2
 let lockBoard = false;
 let winCondition = 10000;
 let score = document.querySelector('#scoreDisplay')
@@ -17,10 +18,7 @@ window.onload = function() {
     startGame();  
 }
 
-
 function shuffleCards(){
-    console.log('shuffleCards'
-    )
     cardSet = colorList.concat(colorList)
     for(let i = 0; i < cardSet.length; i ++){
         //get a fresh board order
@@ -33,7 +31,6 @@ function shuffleCards(){
 }
 
 function startGame(colorSet){
-    console.log('start game')
     for (let i = 0; i < cardSet.length; i++) {
         
         let color = cardSet[i]
@@ -44,6 +41,7 @@ function startGame(colorSet){
         newCard.classList.add(color);
         newCard.classList.add('card');
         newCard.setAttribute('data-dogname',color)
+        newCard.setAttribute('data-id',i)
 
         const frontImg = document.createElement("img");
         const backImg = document.createElement('img');
@@ -60,84 +58,92 @@ function startGame(colorSet){
         gameBoard.appendChild(newCard);
         newCard.appendChild(frontImg)
         newCard.appendChild(backImg)
-        newCard.addEventListener('click', function() {
-            console.log(lockBoard)
-            if (lockBoard) return;
-            this.classList.toggle('flip')
-
-              
-        })
-        
-        
+        newCard.addEventListener('click', listenEvent)       
 }
 winCondition = cardSet.length
 }
 
-
-function pickCard(event){
-    console.log('Pick Card Event')
-    cardCheck = document.querySelectorAll('.card')
-
+function listenEvent (event) {
     if (lockBoard) return;
-    if (event.target.parentElement === firstCard) return;
-    if(winCondition === 0){
-        alert(`You Won in ${turnCount} guesses!`);
-        lockBoard = true;
+    console.log('Listener')
+    
+    let idCheck = Number(event.target.parentElement.dataset.id)
+    if(firstCard !== null && idCheck === firstCardID){
+    console.log('same card');
+    return;
     }
-    
-    
+    event.target.parentElement.classList.toggle('flip');
+    pickCard(event);    
+}
 
-    if (!hasFlippedCard){
-        console.log('no flipped card line 83')
-        firstCard = event.target.parentElement
-        hasFlippedCard = true;
-
+function pickCard(event) {
+    console.log(event.target.parentElement.dataset.id)
+    console.log(firstCard)
+    console.log(firstCard)
+    console.log(!hasFlippedCard)
+    // if (lockBoard) return;
+    if (!hasFlippedCard) {
+      hasFlippedCard = true;
+      firstCardID = Number(event.target.parentElement.dataset.id);
+      firstCard = event.target.parentElement
+        console.log('!Flip',firstCard)
+      return;
     }
     else if (hasFlippedCard){
+    secondCard = event.target.parentElement;
+    checkMatch(event);
+}
+  }
 
-        console.log('check match else line 90.')
-        hasFlippedCard = false;
-
-        secondCard = event.target.parentElement;
-        checkMatch()
-    }
-
-}  
+function checkFirstCard(event){
+    if (Number(event.target.parentElement.dataset.id) === Number(firstCard)){
+        console.log('thats the same card')
+        return;
+    } 
+  
+}
 
 function checkMatch(){
 
-    console.log('checkMatch',firstCard.dataset.dogname,secondCard.dataset.dogname)
-    let isMatched = ((firstCard.dataset.dogname) === (secondCard.dataset.dogname))  
+let isMatched = ((firstCard.dataset.dogname) === (secondCard.dataset.dogname))  
 
-    console.log(firstCard.dataset.dogname)
-    console.log(secondCard.dataset.dogname)
-
-    if(isMatched) {
+ if(isMatched) {
         removeListener()
-        winCondition = winCondition-2;
-        console.log(isMatched, winCondition);
         turnCount++
         score.innerHTML = `<span id='scoreDisplay'>${turnCount}</span>`
+        winCondition = (winCondition - 2)
 } 
     else if(!isMatched){
-    console.log(isMatched)
     flipBack()
     turnCount++
     score.innerHTML = `<span id='scoreDisplay'>${turnCount}</span>`
+    
+}
 }
 
-function removeListener(){
-    firstCard.removeEventListener('click',flipBack);
-    secondCard.removeEventListener('click',flipBack);
+function removeListener(event){
+    console.log(firstCard,secondCard)
+    firstCard.removeEventListener('click',listenEvent);
+    secondCard.removeEventListener('click',listenEvent);
+    lockBoard = false
+        firstCardID = -1
+        firstCard = ''
+        secondCard = ''
+        hasFlippedCard = false
 }
 
-function flipBack(){
+function flipBack(event){
+    console.log(firstCard)
+    console.log(secondCard)
     lockBoard = true
-    console.log('flip back',firstCard,secondCard)
         setTimeout(()=>{
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
-        
+        lockBoard = false
+        firstCardID = -1
+        firstCard = ''
+        secondCard = ''
+        hasFlippedCard = false
         },1500)
-        lockBoard = false       
-}}
+              
+}

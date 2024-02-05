@@ -18,8 +18,8 @@ h2{
     margin-bottom: 10px;
     font-family: sans-serif;
     font-size: 6rem;
-    background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
-    -webkit-background-clip: text;
+    background: linear-gradient(to right, #f12f2c, #f17fa5, #7830f4, #1780d5, #22dcf5, #39d140, #eeff41, #f9a825, #e04313);
+    -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
   }
 

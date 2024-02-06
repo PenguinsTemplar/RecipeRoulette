@@ -13,12 +13,21 @@ body {
     align-items: center;
 }
 
-h2 button{
+h2 {
     margin-top: 0px;
     margin-bottom: 10px;
     font-family: sans-serif;
     font-size: 6rem;
-    background: linear-gradient(to right, #f12f2c, #f17fa5, #7830f4, #1780d5, #22dcf5, #39d140, #eeff41, #f9a825, #e04313);
+    background: linear-gradient(to right, #f12f2c, #f17fa5, #c26dd1, #1780d5, #22dcf5, #39d140, #eeff41, #f9a825, #e04313);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  button {
+    font-family: sans-serif;
+    font-size: 2rem;
+    font: bold;
+    background: linear-gradient(to right, #f12f2c, #f17fa5, #c26dd1, #1780d5, #22dcf5, #39d140, #eeff41, #f9a825, #e04313);
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
   }
@@ -33,7 +42,7 @@ h2 button{
 }
 
 .game{
-    width:80%;
+    width:40%;
     height: 80%;
     margin: 2% 2% 2%;
     display: flex;

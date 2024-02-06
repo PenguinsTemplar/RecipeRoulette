@@ -3,6 +3,8 @@ const colorList = ['red','blue','green'
 let cardSet = [];
 const gameBoard = document.querySelector('.game')
 const newGame = document.querySelector('.reset')
+let lowScore = []
+let lowScoreDisplay = document.querySelector('#lowScoreDisplay')
 
 let turnCount = 0
 let hasFlippedCard = false
@@ -16,6 +18,13 @@ let score = document.querySelector('#scoreDisplay')
 window.onload = function() {
     shuffleCards();
     startGame();
+    let currentLow = localStorage.getItem('lowScore')
+    if(currentLow === null){
+        JSON.stringify(localStorage.setItem('lowScore',1000))
+        currentLow = 1000
+        lowScoreDisplay.innerHTML = `<span id='lowScoreDisplay'>${currentLow}</span>`
+    }
+    lowScoreDisplay.innerHTML = `<span id='lowScoreDisplay'>${currentLow}</span>`
 }
 
 newGame.addEventListener('click',function (){
@@ -122,6 +131,22 @@ let isMatched = ((firstCard.dataset.dogname) === (secondCard.dataset.dogname))
         turnCount++
         score.innerHTML = `<span id='scoreDisplay'>${turnCount}</span>`
         winCondition = (winCondition - 2)
+        if (winCondition === 0){
+            alert(`YOU WIN IN : ${turnCount} guesses!`)
+            currentScore = Number(turnCount)
+            allTime = Number(localStorage.getItem('lowScore'))
+            console.log('allTime',allTime,'current',currentScore)
+            console.log(allTime > currentScore)
+            var audio = new Audio(`MemAssests\/Interceptor_Bark_Sound_Effect.mp3`);
+            audio.play();
+            if(allTime > currentScore){
+            localStorage.setItem('lowScore',currentScore)
+            lowScoreDisplay.innerHTML = `<span id='lowScoreDisplay'>${currentScore}</span>`
+            //this doesn't seem to work
+            // var audio = new Audio(`MemAssests\/Interceptor_Bark_Sound_Effect.mp3`);
+            // audio.play();
+        }
+        }
 } 
     else if(!isMatched){
     flipBack()

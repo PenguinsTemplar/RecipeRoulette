@@ -1,8 +1,8 @@
 const colorList = ['red','blue','green'
 ,'orange','pink','yellow','aqua','purple','white','mauve'];
 let cardSet = [];
-
 const gameBoard = document.querySelector('.game')
+const newGame = document.querySelector('.reset')
 
 let turnCount = 0
 let hasFlippedCard = false
@@ -15,8 +15,16 @@ let score = document.querySelector('#scoreDisplay')
 
 window.onload = function() {
     shuffleCards();
-    startGame();  
+    startGame();
 }
+
+newGame.addEventListener('click',function (){
+    console.log('boom!')
+    gameBoard.innerHTML=''
+    shuffleCards();
+    startGame();
+    score.innerHTML = `<span id='scoreDisplay'>0</span>`
+})
 
 function shuffleCards(){
     cardSet = colorList.concat(colorList)
@@ -81,7 +89,9 @@ function pickCard(event) {
     console.log(firstCard)
     console.log(firstCard)
     console.log(!hasFlippedCard)
-    // if (lockBoard) return;
+    if (winCondition === 0){
+        alert(`YOU WIN IN : ${turnCount} guesses!`)
+    }
     if (!hasFlippedCard) {
       hasFlippedCard = true;
       firstCardID = Number(event.target.parentElement.dataset.id);

@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 
-h2{
+h2 button{
     margin-top: 0px;
     margin-bottom: 10px;
     font-family: sans-serif;
@@ -33,24 +33,25 @@ h2{
 }
 
 .game{
-    width: 70vh;
-    height: 70vh;
+    width:80%;
+    height: 80%;
     margin: 2% 2% 2%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    perspective: 1000px;
+    perspective: 2000px;
     border-radius: 1%;
     background-color: rgb(45, 192, 228);
-    box-shadow: 10px 10px 10px rgba(0,0,0,.3)
+    box-shadow: 10px 10px 10px rgba(0,0,0,.3);
+    
 }
 
 .card{
-    width: calc(25% - 10px);
-    height: calc(25% - 10px);
-    margin: 5px;
+    width: calc(20% - 20px);
+    height: calc(20%);
+    margin: auto;
     position: relative;
-    transform: scale(1);
+    transform: scale(1);  
     transform-style: preserve-3d;
     transition: transform .5s;
     border-radius: 5%;

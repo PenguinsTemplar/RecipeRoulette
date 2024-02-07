@@ -7,6 +7,22 @@ let button = document.getElementById('create-dish')
 // console.log(ingredients)
 // console.log(ingredients)
 
+var container = document.querySelector('.ingredients');
+var inputArray = ['<input id="ingredients" placeholder="Ingredients" type="text" class="form-control mt-2"/>']
+function createNewInput() {
+    inputArray.push('<input id="ingredients" placeholder="Ingredients" type="text" class="form-control mt-2"/>');
+    container.innerHTML = '';
+    inputArray.forEach((input, index) => {
+        container.innerHTML += input;
+    })
+}
+
+window.onload = function(){
+    inputArray.forEach((input, index) => {
+        container.innerHTML += input;
+    })
+}
+
 button.addEventListener("click", () => {
     console.log(title.value)
     console.log(ingredients.value)

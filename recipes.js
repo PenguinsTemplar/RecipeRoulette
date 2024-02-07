@@ -30,7 +30,14 @@ export let recipes = [
         title : 'Scrambled Eggs',
         imageSrc:  'Assets\/ScrambledEggs.png',
         description : 'How to make fluffy eggs',
-        ingredients : '2 eggs 1-2 tbs water or milk 1 tbs butter salt and pepper to taste.  Optional cheese and hot sauce',
+        // ingredientDetail: {
+        //     amount: '2 xd',
+        //     ingredient: 'sgshsjsjjsjsjsjs'
+        // },
+        ingredientDetails: [
+            {amount: '2 xd',
+            ingredient: 'sgshsjsjjsjsjsjs'}
+        ],
         instructions: 'whisk eggs and liquid together.  liquid will evaporate and create airier eggs place a sauce pan on the burner at medium low heat.  Melt the butter.  add eggs to the pan and whisk intermetantly, removing from heat occasionally to keep from cooking too fast.  remove from heat when curds form, while they\'re still glossy',
         category:'Entree'
 

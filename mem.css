@@ -56,8 +56,8 @@ h2 {
 
 
 .game{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     margin: 2% 2% 2%;
     display:grid;
 
@@ -72,9 +72,9 @@ h2 {
 }
 
 .card{
-    width: 100%;
-    height: 100%;
-    margin: auto;
+    width: 85%;
+    height: 70%;
+    margin: 6px 4px 4px 4px;
     position: relative;
     transform: scale(1);  
     transform-style: preserve-3d;

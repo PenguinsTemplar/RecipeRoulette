@@ -1,5 +1,5 @@
 const colorList = ['red','blue','green'
-,'orange','pink','yellow','aqua','purple','white','mauve'];
+,'orange','pink','yellow','aqua','purple','white','mauve','morgan','cricket'];
 let cardSet = [];
 const gameBoard = document.querySelector('.game')
 const newGame = document.querySelector('.reset')

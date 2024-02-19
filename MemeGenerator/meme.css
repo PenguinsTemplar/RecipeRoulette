@@ -61,14 +61,25 @@ button{
     flex-direction: row;
     flex-wrap: wrap;
     z-index: 2;
-    text-shadow:4px 4px 0 #000,
-    4px -4px 0 #000,
-    4px -4px 0 #000,
-    -4px 4px 0 #000,
-    0px 4px 0 #000,
-    4px 0px 0 #000,
-    0px -4px 0 #000,
-    -4px 0px 0 #000;
+    
+    left: 0;
+  right: 0; 
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:2px 2px 0 #000,
+  -2px -2px 0 #000,
+  2px -2px 0 #000,
+  -2px 2px 0 #000,
+  0px 2px 0 #000,
+  2px 0px 0 #000,
+  0px -2px 0 #000,
+  -2px 0px 0 #000,
+  2px 2px 5px #000;
 
 
 }

@@ -1,0 +1,113 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(11, 22, 42);
+}
+.parent-element {
+    display: flex;
+    flex-direction: column;
+}
+button{
+    margin: 10px 10px 10px 0px;
+    display: flex;
+    justify-content: flex-start;
+}
+.meme-generator{
+    height: 25vh;
+    background-color: rgb(200, 56, 3);
+    font-size: 2em;
+    color: rgb(255,255,255);
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+    flex-wrap: wrap;
+    flex-basis: 15;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 5px black solid;
+
+}
+/* 
+#slate {
+    padding: 20px;
+    align-content: flex-end;
+    flex-basis: 25;
+} */
+
+
+.textStyleTop {
+    position: absolute;
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    top: 0;
+    left: 35%;
+    z-index: 1000;
+}
+
+.textStyleBottom {
+    position: absolute;
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    bottom: 0;
+    z-index: 1000;
+    left: 35%;
+}
+
+#meme {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    z-index: 2;
+    text-shadow:4px 4px 0 #000,
+    4px -4px 0 #000,
+    4px -4px 0 #000,
+    -4px 4px 0 #000,
+    0px 4px 0 #000,
+    4px 0px 0 #000,
+    0px -4px 0 #000,
+    -4px 0px 0 #000;
+
+
+}
+
+#meme img {
+    height: 50vh;
+    width: 40vh;
+    z-index: 6;
+
+}
+/* 
+#meme img:hover{
+    background-color: black;
+} */
+
+.memeholder {
+    display: flex;
+    position: relative;
+    z-index: 5;
+    margin: 0 6px; 
+}
+
+#memeLinks{
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+#memeLinks img{
+    padding: 5px;
+    display: flex;    
+    height: 4em;
+    width: 4em;
+}
+/* button {
+    display:flex;
+    flex-direction: row;
+} */
+
+/* bootstrap we have row  col-xs-6*/
